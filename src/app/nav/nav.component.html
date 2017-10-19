@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand">Riftovani.cz</a>
+  <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" 
+             [collapse]="isCollapsed">
+    <ul class="navbar-nav mr-auto">
+      <span *ngFor="let navItem of navItems">
+          <li class="nav-item" *ngIf="navItem.position === 'left'">
+            <div class="btn-group" dropdown *ngIf="navItem.dropdown">
+              <a dropdownToggle class="dropdown-toggle nav-link">
+                {{ navItem.name }} <span class="caret"></span>
+              </a>
+              <ul *dropdownMenu class="dropdown-menu" role="menu">
+                <li role="menuitem" *ngFor="let item of navItem.dropdown">
+                  <a class="dropdown-item">{{item}}</a>
+                </li>
+              </ul>
+            </div>
+            <a class="nav-link" *ngIf="!navItem.dropdown">{{ navItem.name }} 
+            </a>
+          </li>
+      </span>
+    </ul>
+    <ul class="navbar-nav">
+      <span *ngFor="let navItem of navItems">
+          <li class="nav-item" *ngIf="navItem.position === 'right'">
+            <a class="nav-link">{{ navItem.name}}</a>
+          </li>
+      </span>
+    </ul>
+  </div>
+</nav>
