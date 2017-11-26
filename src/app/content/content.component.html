@@ -1,0 +1,13 @@
+<div class="container text-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-sm-6 col-lg-4" *ngFor="let workItem of workItems">
+        <app-item [item]="workItem"></app-item>
+      </div>
+      <div *ngIf="adminMode" class="col-12 col-sm-6 col-lg-4">
+        <a (click)="openModalForm()"><i class="fa fa-5x fa-plus-square-o" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </div>
+
+</div>

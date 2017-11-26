@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NavComponent } from './nav/nav.component';
+import { ContentComponent } from './content/content.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 const routes: Routes = [
-   { path: '', component: NavComponent }
+  { path: '', component: WelcomeComponent, pathMatch: 'full' },
+  { path: 'mywork', component: ContentComponent},
+  { path: '**', redirectTo: '/'}
 ];
 
 @NgModule({

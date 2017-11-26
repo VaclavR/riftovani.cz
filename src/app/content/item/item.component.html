@@ -1,0 +1,15 @@
+<div class="card text-dark" style="width: 20rem;">
+  <img class="card-img-top" [src]="item.img" [alt]="item.name">
+  <div class="card-body">
+    <h4 *ngIf="!adminMode" class="card-title">{{ item.name }}</h4>
+    <h4 *ngIf="adminMode"
+        class="card-title">
+      <input class="border-0" type="text" [(ngModel)]="item.name">
+    </h4>
+    <p *ngIf="!adminMode" class="card-text">{{ item.desc }}</p>
+    <p *ngIf="adminMode" class="card-text">
+      <textarea class="border-0" type="text" [(ngModel)]="item.desc"></textarea>
+    </p>
+    <a [href]="item.url" class="btn btn-primary">Let me see</a>
+  </div>
+</div>
