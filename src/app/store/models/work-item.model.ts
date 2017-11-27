@@ -1,8 +1,8 @@
 export class WorkItem {
   constructor(
-    name: string,
-    desc: string,
-    img: string,
-    url: string
+    public name: string,
+    public desc: string,
+    public img: string,
+    public url: string
   ) {}
 }

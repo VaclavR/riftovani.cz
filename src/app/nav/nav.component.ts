@@ -48,6 +48,10 @@ export class NavComponent implements OnInit, OnDestroy {
     this.store.dispatch(new NavActions.ShowForm(true));
   }
 
+  onSave() {
+
+  }
+
   onLogout() {
     this.store.dispatch(new NavActions.ShowForm(false));
     this.store.dispatch(new AuthActions.LogoutAdmin());

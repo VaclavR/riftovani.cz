@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { reducers } from './store/app.reducers';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { AuthService } from './store/auth/auth.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { AuthService } from './store/auth/auth.service';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     NavModule,
     ContentModule,

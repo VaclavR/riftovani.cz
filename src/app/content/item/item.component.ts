@@ -25,4 +25,8 @@ export class ItemComponent implements OnInit {
       this.adminMode = state.adminMode;
     });
   }
+
+  onChanged(value: string) {
+    console.log(this.item[value]);
+  }
 }
