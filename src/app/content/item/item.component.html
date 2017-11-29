@@ -1,24 +1,24 @@
 <div class="card text-dark" style="width: 20rem;">
-  <span *ngIf="adminMode"><input class="form-control" type="text"
-                                 [(ngModel)]="item.img" (input)="onChanged('img')"></span>
+  <span *ngIf="adminMode"><input class="form-control" type="text" #img
+                                 [(ngModel)]="item.img"></span>
   <img class="card-img-top" [src]="item.img" [alt]="item.name">
   <div class="card-body">
     <h4 *ngIf="!adminMode" class="card-title">{{ item.name }}</h4>
     <h4 *ngIf="adminMode"
         class="card-title">
-      <input class="border-0 form-control" type="text"
-             [(ngModel)]="item.name" (input)="onChanged('name')">
+      <input class="border-0 form-control" type="text" #name
+             [(ngModel)]="item.name">
     </h4>
     <p *ngIf="!adminMode" class="card-text">{{ item.desc }}</p>
     <p *ngIf="adminMode" class="card-text">
-      <textarea class="border-0 form-control" type="text"
-                [(ngModel)]="item.desc" (input)="onChanged('desc')">
+      <textarea class="border-0 form-control" type="text" #desc
+                [(ngModel)]="item.desc">
       </textarea>
     </p>
     <span *ngIf="adminMode" class="btn btn-primary">
       <input class="form-control" type="text"
-             [(ngModel)]="item.url" (input)="onChanged('name')">
+             [(ngModel)]="item.url">
     </span>
-    <a *ngIf="!adminMode" [href]="item.url" class="btn btn-primary">Let me see</a>
+    <a *ngIf="!adminMode" [href]="item.url" class="btn btn-primary" #url>Let me see</a>
   </div>
 </div>

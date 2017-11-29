@@ -5,14 +5,18 @@ import * as NavActions from '../nav/nav.actions';
 import * as AuthActions from './auth.actions';
 import * as fromApp from '../app.reducers';
 import * as firebase from 'firebase';
+import {Subject} from 'rxjs/Subject';
+import set = Reflect.set;
 
 @Injectable()
 export class AuthService {
+  inputSubscriptions = new Subject<void>();
 
   constructor(private store: Store<fromApp.AppState>,
               private http: HttpClient) {}
+
   signupAdmin(password: string) {
-    firebase.auth().signInWithEmailAndPassword('vaclav.rysavy@tutanota.com', password)
+    firebase.auth().signInWithEmailAndPassword('rys@gmx.us', password)
       .then(
         () => {
           this.store.dispatch(new AuthActions.SigninAdmin());
@@ -20,6 +24,7 @@ export class AuthService {
             .then(
               (token: string) => {
                 this.store.dispatch(new AuthActions.SetToken(token));
+                setTimeout(() => {this.inputSubscriptions.next(); }, 0);
               }
             );
         }
@@ -31,6 +36,7 @@ export class AuthService {
         }
       );
   }
+
   saveChanges(data: any) {
     const url = 'https://riftovani.firebaseio.com/data.json';
     this.http.put(url, data);

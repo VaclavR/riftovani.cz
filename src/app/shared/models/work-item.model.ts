@@ -3,6 +3,7 @@ export class WorkItem {
     public name: string,
     public desc: string,
     public img: string,
-    public url: string
+    public url: string,
+    public index: number
   ) {}
 }

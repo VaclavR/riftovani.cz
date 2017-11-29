@@ -1,4 +1,4 @@
-import { NavItem } from '../store/models/nav-item.model';
+import { NavItem } from '../shared/models/nav-item.model';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';

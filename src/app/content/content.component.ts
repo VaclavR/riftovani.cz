@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
-import { WorkItem } from '../store/models/work-item.model';
+import { WorkItem } from '../shared/models/work-item.model';
 import * as fromApp from '../store/app.reducers';
 import * as fromNav from '../store/nav/nav.reducers';
 import * as fromAuth from '../store/auth/auth.reducers';
