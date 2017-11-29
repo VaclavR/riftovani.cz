@@ -8,7 +8,6 @@ import { ContentModule } from './content/content.module';
 import { AppComponent } from './app.component';
 import { reducers } from './store/app.reducers';
 import { WelcomeComponent } from './welcome/welcome.component';
-import { AuthService } from './store/auth/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -24,7 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
     ContentModule,
     StoreModule.forRoot(reducers)
   ],
-  providers: [AuthService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
