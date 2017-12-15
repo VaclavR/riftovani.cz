@@ -1,13 +1,14 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
+import { Subscription } from 'rxjs/Subscription';
+import { BsModalService } from 'ngx-bootstrap';
+import { FormComponent } from './modal/form.component';
 import { WorkItem } from '../shared/models/work-item.model';
 import * as fromApp from '../store/app.reducers';
 import * as fromNav from '../store/nav/nav.reducers';
 import * as fromAuth from '../store/auth/auth.reducers';
-import { Subscription } from 'rxjs/Subscription';
-import { BsModalService } from 'ngx-bootstrap';
-import { FormComponent } from './modal/form.component';
+import * as NavActions from '../store/nav/nav.actions';
 
 @Component({
   selector: 'app-content',
@@ -38,6 +39,7 @@ export class ContentComponent implements OnInit, OnDestroy {
   }
 
   openModalForm() {
+    this.store.dispatch(new NavActions.SetEditedItem());
     this.modalService.show(FormComponent);
   }
 

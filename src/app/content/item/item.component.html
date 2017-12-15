@@ -1,24 +1,17 @@
 <div class="card text-dark" style="width: 20rem;">
-  <span *ngIf="adminMode"><input class="form-control" type="text" #img
-                                 [(ngModel)]="item.img"></span>
+  <div class="btn-group admin-buttons" *ngIf="adminMode">
+    <button class="btn btn-danger" (click)="onDelete()">
+      <i class="fa fa-trash-o" aria-hidden="true"></i>
+    </button>
+    <button class="btn btn-warning" (click)="openModalForm()">
+      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+    </button>
+  </div>
+
   <img class="card-img-top" [src]="item.img" [alt]="item.name">
   <div class="card-body">
-    <h4 *ngIf="!adminMode" class="card-title">{{ item.name }}</h4>
-    <h4 *ngIf="adminMode"
-        class="card-title">
-      <input class="border-0 form-control" type="text" #name
-             [(ngModel)]="item.name">
-    </h4>
-    <p *ngIf="!adminMode" class="card-text">{{ item.desc }}</p>
-    <p *ngIf="adminMode" class="card-text">
-      <textarea class="border-0 form-control" type="text" #desc
-                [(ngModel)]="item.desc">
-      </textarea>
-    </p>
-    <span *ngIf="adminMode" class="btn btn-primary">
-      <input class="form-control" type="text"
-             [(ngModel)]="item.url">
-    </span>
-    <a *ngIf="!adminMode" [href]="item.url" class="btn btn-primary" #url>Let me see</a>
+    <h4 class="card-title">{{ item.name }}</h4>
+    <p class="card-text">{{ item.desc }}</p>
+    <a [href]="item.url" class="btn btn-primary" #url>Let me see</a>
   </div>
 </div>

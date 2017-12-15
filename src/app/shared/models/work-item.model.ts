@@ -4,6 +4,5 @@ export class WorkItem {
     public desc: string,
     public img: string,
     public url: string,
-    public index: number
   ) {}
 }

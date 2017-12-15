@@ -1,9 +1,10 @@
-import { NgModule } from '@angular/core';
-import { ContentComponent } from './content.component';
-import { CommonModule } from '@angular/common';
+import { NgModule }                         from '@angular/core';
+import { ContentComponent }                 from './content.component';
+import { CommonModule }                     from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ItemComponent } from './item/item.component';
-import { FormComponent } from './modal/form.component';
+import { ItemComponent }                    from './item/item.component';
+import { FormComponent }                    from './modal/form.component';
+import { ProgressbarModule }                from 'ngx-bootstrap';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { FormComponent } from './modal/form.component';
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ProgressbarModule.forRoot()
   ],
   exports: [
     ContentComponent

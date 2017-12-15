@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import * as AuthActions from '../../store/auth/auth.actions';
+import * as fromApp from '../../store/app.reducers';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-password',
@@ -8,8 +11,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class PasswordComponent implements OnInit {
   adminForm: FormGroup;
+  kuk: string;
 
-  constructor() {}
+  constructor(private store: Store<fromApp.AppState>) {}
 
   ngOnInit() {
     this.adminForm = new FormGroup({
@@ -17,8 +21,9 @@ export class PasswordComponent implements OnInit {
     });
   }
 
-  onInput() {
-    if (this.adminForm.valid && this.adminForm.value.password.length === 6) {
+  onChange() {
+    if (this.adminForm.valid) {
+      this.store.dispatch(new AuthActions.TrySignin(this.adminForm.value.password));
       this.adminForm.reset();
     }
   }
