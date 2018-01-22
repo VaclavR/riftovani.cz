@@ -1,5 +1,5 @@
 import { NavItem } from '../shared/models/nav-item.model';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import { BsModalService } from 'ngx-bootstrap/modal';
@@ -42,6 +42,15 @@ export class NavComponent implements OnInit, OnDestroy {
     this.authSubscription = this.authState.subscribe((state) => {
       this.adminMode = state.adminMode;
     });
+  }
+
+  @HostListener('document:keyup', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) {
+    if (this.showForm) {
+      if (event.keyCode === 27) {
+        this.store.dispatch(new NavActions.ShowForm(false));
+      }
+    }
   }
 
   showAdminForm() {
