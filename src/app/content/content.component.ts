@@ -31,6 +31,7 @@ export class ContentComponent implements OnInit, OnDestroy {
     this.navState = this.store.select('nav');
     this.navSubscription = this.navState.subscribe((state: fromNav.State) => {
       this.workItems = state.workItems;
+      console.log(this.workItems);
     });
     this.authState = this.store.select('auth');
     this.authSubscription = this.authState.subscribe((state: fromAuth.State) => {

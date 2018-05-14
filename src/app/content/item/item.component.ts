@@ -22,6 +22,7 @@ export class ItemComponent implements OnInit, OnDestroy {
   authState: Observable<fromAuth.State>;
   authSubscription: Subscription;
   adminMode: boolean;
+  imageLoaded = false;
 
   constructor(private store: Store<fromApp.AppState>,
               private modalService: BsModalService) {}
